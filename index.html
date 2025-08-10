@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Peterson | Business Consultant & Problem Solver</title>
+    <meta name="description" content="Professional business consulting services specializing in discovery, research, process improvement, and training.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: linear-gradient(to bottom, #fffbeb, #ffffff);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            color: #b45309;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #6b7280;
+            text-decoration: none;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d97706;
+            border-bottom-color: #d97706;
+        }
+
+        .mobile-menu {
+            display: block;
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 1rem 5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 48rem;
+            margin: 0 auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: #d97706;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 2rem;
+            background: #d97706;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(217, 119, 6, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #b45309;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-outline {
+            padding: 0.75rem 2rem;
+            background: transparent;
+            color: #d97706;
+            border: 2px solid #d97706;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #fffbeb;
+        }
+
+        .scroll-indicator {
+            margin-top: 4rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator button {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .scroll-indicator button:hover {
+            color: #d97706;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 1rem;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-amber {
+            background: #fffbeb;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            width: 5rem;
+            height: 0.25rem;
+            background: #d97706;
+            margin: 0 auto 2.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 48rem;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background: #fef3c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #d97706;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: #6b7280;
+        }
+
+        /* Experience Section */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 64rem;
+            margin: 0 auto 4rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .industry-card {
+            background: #fffbeb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .industry-card h3 {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            max-width: 48rem;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .approach-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .approach-item {
+            text-align: center;
+        }
+
+        .approach-icon {
+            width: 4rem;
+            height: 4rem;
+            background: #fef3c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .approach-icon svg {
+            width: 2rem;
+            height: 2rem;
+            color: #d97706;
+        }
+
+        .approach-item h4 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .approach-item p {
+            color: #6b7280;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #d97706;
+            margin-right: 0.75rem;
+        }
+
+        .contact-item a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #d97706;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .footer-tagline {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .footer-copy {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40%, 43% {
+                transform: translateY(-10px);
+            }
+            70% {
+                transform: translateY(-5px);
+            }
+            90% {
+                transform: translateY(-2px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Faith Peterson</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><span class="highlight">Solving complex problems</span> through discovery, research, and clear thinking</h1>
+                <p>I help organizations navigate challenges and transform opportunities into successful outcomes.</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn-outline">Get in Touch</a>
+                </div>
+                <div class="scroll-indicator">
+                    <button onclick="document.getElementById('about').scrollIntoView()">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <p>With over 15 years of experience spanning software development, healthcare systems, educational technology, and business operations, I bring a unique perspective to every project. My background in both technical implementation and strategic planning allows me to bridge the gap between vision and execution.</p>
+                <p>I believe in a human-centered approach to problem-solving, focusing on the people affected by systems and processes rather than just the technology or business metrics. This philosophy has guided my work with organizations of all sizes, from startups to Fortune 500 companies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-amber">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Services</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">I offer a range of services designed to help your organization overcome challenges and achieve its goals.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Discovery & Research</h3>
+                    <p>Uncovering insights through stakeholder interviews, process analysis, and data evaluation to identify root causes and opportunities for improvement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Process Improvement</h3>
+                    <p>Streamlining workflows, eliminating bottlenecks, and implementing efficient systems that save time, reduce costs, and improve outcomes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <h3>Product Management</h3>
+                    <p>Guiding product development from concept to launch with user-centered design principles, strategic roadmapping, and cross-functional team coordination.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3>Training & Coaching</h3>
+                    <p>Empowering teams with the skills, knowledge, and mindset needed to sustain improvements and adapt to changing conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">I've worked across multiple industries, bringing a diverse perspective to every project.</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-emoji">🏥</div>
+                    <h3>Healthcare</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">💰</div>
+                    <h3>Fintech</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">🎓</div>
+                    <h3>Education</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">🛍️</div>
+                    <h3>Retail</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">🏭</div>
+                    <h3>Manufacturing</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">🤝</div>
+                    <h3>Nonprofit</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">💻</div>
+                    <h3>Technology</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-emoji">🏛️</div>
+                    <h3>Government</h3>
+                </div>
+            </div>
+            <div class="approach-section">
+                <h3 class="approach-title">My Approach</h3>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Understand</h4>
+                        <p>Deep listening and thorough research to fully grasp the challenge</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h4>Innovate</h4>
+                        <p>Creative problem-solving with practical, implementable solutions</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Implement</h4>
+                        <p>Hands-on execution with continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-amber">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Ready to solve your organization's challenges? Let's start a conversation.</p>
+            </div>
+            <div class="contact-card">
+                <h3 class="contact-title">Contact Information</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect width="4" height="12" x="2" y="9"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <a href="https://linkedin.com/in/faithpeterson" target="_blank">linkedin.com/in/faithpeterson</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M15 3h6v6"/>
+                            <path d="M10 14 21 3"/>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        </svg>
+                        <a href="https://fiverr.com/faithpworks" target="_blank">Fiverr Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Faith Peterson</div>
+                    <p class="footer-tagline">Solving complex problems with clarity and purpose</p>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2025 Faith Peterson. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic functionality)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenu && navLinks) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
