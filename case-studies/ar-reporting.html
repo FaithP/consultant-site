@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Case Study: Transforming Financial Reporting | Faith Peterson</title>
+    <meta name="description" content="How I transformed monthly financial reporting into daily intelligence using MS Access and strategic data modeling.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: linear-gradient(to bottom, #fffbeb, #ffffff);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            color: #b45309;
+            font-weight: 700;
+            font-size: 2.25rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #6b7280;
+            text-decoration: none;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d97706;
+            border-bottom-color: #d97706;
+        }
+
+        .mobile-menu {
+            display: block;
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 8rem 1rem 3rem;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #d97706;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 5rem;
+            height: 0.25rem;
+            background: #d97706;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .case-study-section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: #fffbeb;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #d97706;
+        }
+
+        .highlight h2 {
+            color: #b45309;
+            margin-bottom: 1rem;
+        }
+
+        .highlight p {
+            color: #374151;
+            margin-bottom: 0;
+        }
+
+        .navigation {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 2rem;
+            background: #d97706;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(217, 119, 6, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #b45309;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-outline {
+            padding: 0.75rem 2rem;
+            background: transparent;
+            color: #d97706;
+            border: 2px solid #d97706;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #fffbeb;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .footer-tagline {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .footer-copy {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .navigation {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            h1 {
+                font-size: 3.75rem;
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">Faith Peterson</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../case-studies.html">Case Studies</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <a href="../case-studies.html" class="back-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Back to Case Studies
+            </a>
+            
+            <div class="page-header">
+                <h1>From Monthly Delays to Daily Intelligence</h1>
+                <p class="subtitle">Transforming Financial Reporting with Strategic Data Architecture</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="case-study-section">
+                <h2>The Situation</h2>
+                <p>Working within the Accounts Receivable department at a major corporation, I noticed a critical gap between what managers needed and what they could access. The department monitored cash application cycle times - a key metric where every day of delay represented lost revenue - but could only get monthly reports from the mainframe system delivered on pallets of printed paper.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h2>The Discovery</h2>
+                <p>Through my role supporting executive briefings, I learned that leadership wanted daily cycle time data to optimize cash management. The monthly lag made it impossible to respond quickly to bottlenecks or performance issues. With the cash volumes involved, each day of delayed application had real financial impact.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h2>The Solution</h2>
+                <p>Recognizing an opportunity to bridge this gap, I proposed building a prototype using the department's new PC with MS Access. Working with colleagues who had mainframe data access, I secured a flat file export of the raw A/R data.</p>
+                <p>I designed and built queries to calculate cycle times at multiple levels - individual clerk performance, team aggregations, and department-wide metrics - with the daily granularity leadership required. The solution included automated reporting and visual dashboards that transformed how managers could monitor performance.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h2>The Impact</h2>
+                <p>The prototype impressed both department leadership and the executive team. More importantly, it provided the concrete demonstration needed to build a business case for permanent IT infrastructure changes. The director was able to quantify the operational benefits and secure resources for a scalable, integrated solution.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h2>The Outcome</h2>
+                <p>While I moved to a new role before the full implementation, my prototype became the foundation for the department's new daily reporting capability - transforming a monthly batch process into real-time operational intelligence.</p>
+            </div>
+
+            <div class="highlight">
+                <h2>The Insight</h2>
+                <p>Sometimes the most impactful solutions come from recognizing the gap between what technology can provide and what business leaders actually need. Building prototypes with available tools can demonstrate value and create the business case for larger investments.</p>
+            </div>
+
+            <div class="navigation">
+                <a href="../case-studies.html" class="btn-outline">View All Case Studies</a>
+                <a href="../index.html#contact" class="btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Faith Peterson</div>
+                    <p class="footer-tagline">Solving complex problems with clarity and purpose</p>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2025 Faith Peterson. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic functionality)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenu && navLinks) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
