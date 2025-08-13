@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchy Wireframe - Early Prototype</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+    </style>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kalam', cursive;
+            margin: 0;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .sketchy-border {
+            border: 2px dashed #666;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .sketchy-border::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 1px solid #999;
+            border-radius: 10px;
+            opacity: 0.3;
+        }
+        
+        /* Navigation */
+        .nav-bar {
+            background-color: #f0f0f0;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .nav-items {
+            display: flex;
+            gap: 30px;
+            font-size: 18px;
+        }
+        
+        .nav-item {
+            color: #666;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+        
+        /* Dropdown */
+        .dropdown-container {
+            margin-bottom: 30px;
+        }
+        
+        .dropdown {
+            padding: 12px 15px;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            background-color: #fff;
+            border: 2px dashed #666;
+            border-radius: 6px;
+            width: 200px;
+        }
+        
+        /* Main content area */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            background-color: #fff;
+            padding: 25px;
+        }
+        
+        .sidebar {
+            background-color: #f8f8f8;
+            padding: 25px;
+        }
+        
+        /* Headings */
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+        
+        /* Form */
+        .form-container {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: #555;
+        }
+        
+        input[type="text"], 
+        input[type="email"], 
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            background-color: #fff;
+            border: 2px dashed #666;
+            border-radius: 6px;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .button {
+            padding: 12px 25px;
+            font-family: 'Kalam', cursive;
+            font-size: 16px;
+            background-color: #e0e0e0;
+            border: 2px dashed #666;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #d0d0d0;
+        }
+        
+        /* Image placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        
+        /* Text boxes */
+        .text-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background-color: #fffacd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-items {
+                gap: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar sketchy-border">
+        <div class="logo">ACME App</div>
+        <div class="nav-items">
+            <span class="nav-item">Home</span>
+            <span class="nav-item">Features</span>
+            <span class="nav-item">About</span>
+            <span class="nav-item">Contact</span>
+        </div>
+    </nav>
+    
+    <!-- Dropdown -->
+    <div class="dropdown-container">
+        <label for="category">Choose Category:</label>
+        <select class="dropdown" id="category">
+            <option>Select an option...</option>
+            <option>Option One</option>
+            <option>Option Two</option>
+            <option>Option Three</option>
+        </select>
+    </div>
+    
+    <!-- Main Content Grid -->
+    <div class="content-wrapper">
+        <main class="main-content sketchy-border">
+            <h1>Main Page Heading</h1>
+            
+            <div class="image-placeholder sketchy-border">
+                [Hero Image - 800x200px]
+            </div>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            
+            <h2>Secondary Heading</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+            <div class="text-box sketchy-border">
+                <h3>Feature Callout</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+        </main>
+        
+        <aside class="sidebar sketchy-border">
+            <h3>Sidebar Content</h3>
+            
+            <div class="highlight-box sketchy-border">
+                <strong>Important Notice:</strong><br>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.
+            </div>
+            
+            <div class="text-box sketchy-border">
+                <h4>Quick Links</h4>
+                <p>• Link One<br>
+                • Link Two<br>
+                • Link Three<br>
+                • Link Four</p>
+            </div>
+            
+            <div class="text-box sketchy-border">
+                <h4>Stats Widget</h4>
+                <p><strong>Users:</strong> 1,234<br>
+                <strong>Revenue:</strong> $56,789<br>
+                <strong>Growth:</strong> +12%</p>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Form Section -->
+    <section class="form-container sketchy-border">
+        <h2>Contact Form</h2>
+        
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="your.email@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Tell us what you think..."></textarea>
+            </div>
+            
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </section>
+    
+    <!-- Footer Text Box -->
+    <footer class="text-box sketchy-border">
+        <p><strong>Footer Area:</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    </footer>
+</body>
+</html>
