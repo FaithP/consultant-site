@@ -352,13 +352,28 @@
         }
 
         /* Approach Section */
-        .approach-section {
+        /*.approach-section {
             max-width: 48rem;
             margin: 0 auto;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }*/
+        
+        .approach-section {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+        
+        .approach-content {
+            max-width: 48rem;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #374151;
         }
 
+
+        
         .approach-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -682,7 +697,7 @@
         </div>
     </section>
 
-    <section id="experience" class="section-white">
+    /*<section id="experience" class="section-white">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Experience</h2>
@@ -756,7 +771,46 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>*/
+
+    <section id="approach" class="approach-section">
+    <div class="container">
+        <h2>My Approach</h2>
+        <div class="section-divider"></div>
+        <div class="approach-content">
+            <!-- Move your existing "My Approach" content here with proper spacing -->
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Understand</h4>
+                        <p>Deep listening and thorough research to fully grasp the challenge</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h4>Innovate</h4>
+                        <p>Creative problem-solving with practical, implementable solutions</p>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Implement</h4>
+                        <p>Hands-on execution with continuous improvement</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
 
     <section id="contact" class="section-amber">
         <div class="container">
