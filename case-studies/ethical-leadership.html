@@ -83,6 +83,45 @@
             cursor: pointer;
         }
 
+        @media (max-width: 767px) {
+            
+            /* Hide nav by default on mobile */
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-links.mobile-active {
+                position: fixed !important;
+                top: 4rem !important;
+                left: 0 !important;
+                right: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(8px);
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 40;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            
+            .nav-links.mobile-active li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links.mobile-active a {
+                display: block;
+                padding: 0.75rem 1rem;
+                font-size: 1.125rem;
+                border-radius: 0.375rem;
+                border-bottom: none !important;
+            }
+        }
+        
         /* Main Content */
         .main-content {
             padding: 8rem 1rem 3rem;
@@ -404,8 +443,9 @@
         const navLinks = document.querySelector('.nav-links');
 
         if (mobileMenu && navLinks) {
-            mobileMenu.addEventListener('click', () => {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            mobileMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.classList.toggle('mobile-active');
             });
         }
     </script>
