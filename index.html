@@ -482,6 +482,22 @@
             color: #d97706;
         }
 
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #d97706;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+
+
         /* Footer */
         footer {
             background: #1f2937;
@@ -611,7 +627,7 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
     <header>
         <nav class="container">
             <div class="logo">Faith Peterson</div>
@@ -844,6 +860,9 @@
             </div>
         </div>
     </section>
+
+    <!--Back to Top floating link-->
+    <a href="#top" class="back-to-top">↑ Top</a>
 
     <footer>
         <div class="container">
