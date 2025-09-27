@@ -187,7 +187,7 @@
         background: #fffbeb;
     }
 
-        /* Case Studies Grid */
+/* Case Studies Grid */
         .case-studies-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -276,6 +276,84 @@
         .read-more:hover svg {
             transform: translateX(2px);
         }
+
+/* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-icon {
+            color: #d97706;
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+
+        .testimonial-text {
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-attribution {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-role {
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .testimonial-context {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+
+
+/* Keyword Pills */
+        .keyword-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .pill {
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid #fcd34d;
+        }
+
+
 
         /* Call to Action */
         .cta-section {
