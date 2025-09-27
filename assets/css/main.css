@@ -383,6 +383,7 @@
         }
 
         .approach-title {
+            font-family: 'Alan Sans','Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: #1f2937;
@@ -506,6 +507,7 @@
         }
 
         .footer-logo {
+            font-family: 'Alan Sans','Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: #fbbf24;
             font-weight: 600;
             font-size: 1.25rem;
