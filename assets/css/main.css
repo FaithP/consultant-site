@@ -130,6 +130,7 @@
         }
 
         .hero h1 {
+            font-family: 'Alan Sans','Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: #1f2937;
@@ -230,6 +231,7 @@
         }
 
         .section-title {
+            font-family: 'Alan Sans','Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             font-size: 2.25rem;
             font-weight: 700;
             color: #1f2937;
